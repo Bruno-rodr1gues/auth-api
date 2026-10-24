@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.Date;
+import java.util.stream.Collectors;
 
 @Service
 public class JwtTokenService {
@@ -24,8 +26,9 @@ public class JwtTokenService {
             return JWT.create()
                     .withIssuer(ISSUER)
                     .withIssuedAt(creationDate())
-                    .withIssuedAt(expirationDate())
+                    .withExpiresAt(expirationDate())
                     .withSubject(user.getUsername())
+                    .withClaim("role", user.getAuthorities().stream().map(Object::toString).collect(Collectors.joining(",")))
                     .sign(algorithm); // Gera o token assinado com a chave secreta
         } catch (JWTCreationException exception) {
             throw new RuntimeException("Error ao gerar token", exception);
@@ -51,6 +54,6 @@ public class JwtTokenService {
     }
 
     private Instant expirationDate() {
-        return ZonedDateTime.now(ZoneId.of("America/Fortaleza")).plusHours(4).toInstant();
+        return new Date(System.currentTimeMillis() + 3600000).toInstant();
     }
 }
