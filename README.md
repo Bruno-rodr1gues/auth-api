@@ -76,7 +76,7 @@ Cria um usuário e armazena a senha codificada com BCrypt. O campo `role` aceita
 
 **Resposta de sucesso:** `201 Created`, sem corpo.
 
-> **Espaço para imagem do Swagger:** adicione a captura desta operação abaixo.
+<img width="1797" height="750" alt="image" src="https://github.com/user-attachments/assets/8b99afd7-e254-4a93-8a89-6aefed432a87" />
 >
 > <!-- Salve a imagem em docs/images/swagger/register.png e descomente a linha seguinte. -->
 > <!-- ![POST /users/register no Swagger](docs/images/swagger/register.png) -->
@@ -104,7 +104,7 @@ Autentica pelo e-mail e senha e retorna um JWT.
 }
 ```
 
-> **Espaço para imagem do Swagger:** adicione a captura desta operação abaixo.
+<img width="1792" height="567" alt="image" src="https://github.com/user-attachments/assets/1fc39be3-a470-49e1-b5c2-bb6894449f6f" />
 >
 > <!-- Salve a imagem em docs/images/swagger/login.png e descomente a linha seguinte. -->
 > <!-- ![POST /users/login no Swagger](docs/images/swagger/login.png) -->
@@ -117,7 +117,7 @@ Disponível para qualquer usuário autenticado.
 
 **Resposta de sucesso:** `200 OK` — `Autenticado com sucesso`.
 
-> **Espaço para imagem do Swagger:** adicione a captura desta operação abaixo.
+<img width="1792" height="326" alt="image" src="https://github.com/user-attachments/assets/4c75a021-cb9a-48b4-8e3d-ed19f4c19095" />
 >
 > <!-- Salve a imagem em docs/images/swagger/test-authenticated.png e descomente a linha seguinte. -->
 > <!-- ![GET /users/test no Swagger](docs/images/swagger/test-authenticated.png) -->
@@ -130,7 +130,7 @@ Exige a autoridade `ROLE_USER`.
 
 **Resposta de sucesso:** `200 OK` — `Cliente autenticado com sucesso`.
 
-> **Espaço para imagem do Swagger:** adicione a captura desta operação abaixo.
+<img width="1817" height="807" alt="image" src="https://github.com/user-attachments/assets/b5c2937d-bba7-4ef3-817e-05d573b3c9e9" />
 >
 > <!-- Salve a imagem em docs/images/swagger/test-customer.png e descomente a linha seguinte. -->
 > <!-- ![GET /users/test/customer no Swagger](docs/images/swagger/test-customer.png) -->
@@ -143,7 +143,7 @@ Exige a autoridade `ROLE_ADMIN`.
 
 **Resposta de sucesso:** `200 OK` — `Administrador autenticado com sucesso`.
 
-> **Espaço para imagem do Swagger:** adicione a captura desta operação abaixo.
+<img width="1796" height="792" alt="image" src="https://github.com/user-attachments/assets/9da8b564-338e-484d-995d-588a3451db03" />
 >
 > <!-- Salve a imagem em docs/images/swagger/test-administrator.png e descomente a linha seguinte. -->
 > <!-- ![GET /users/test/administrator no Swagger](docs/images/swagger/test-administrator.png) -->
