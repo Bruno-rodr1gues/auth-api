@@ -19,7 +19,10 @@ public class SecurityConfiguration {
 
     public static final String [] ENDPOINTS_WITH_AUTHENTICATION_NOT_REQUIRED = {
             "/users/register", // Url que usaremos para fazer registro
-            "/users/login"     // Url que usaremos para fazer login
+            "/users/login",    // Url que usaremos para fazer login
+            "/v3/api-docs/**", // Url que usaremos para acessar a documentação da API
+            "/swagger-ui/**",
+            "/swagger-ui.html"
     };
 
     // Endpoints que requerem autenticação para serem acessados
@@ -46,8 +49,8 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(ENDPOINTS_WITH_AUTHENTICATION_NOT_REQUIRED).permitAll()
                         .requestMatchers(ENDPOINTS_WITH_AUTHENTICATION_REQUIRED).authenticated()
-                        .requestMatchers(ENDPOINTS_ADMIN).hasAuthority("ADMINISTRATOR")
-                        .requestMatchers(ENDPOINTS_CUSTOMER).hasAuthority("CUSTOMER")
+                        .requestMatchers(ENDPOINTS_ADMIN).hasAuthority("ROLE_ADMIN")
+                        .requestMatchers(ENDPOINTS_CUSTOMER).hasAuthority("ROLE_USER")
                         .anyRequest().denyAll())
                 .addFilterBefore(userAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
