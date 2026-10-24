@@ -2,10 +2,12 @@ services:
   db:
     image: postgres:16
     restart: unless-stopped
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_DB: auth-db
       POSTGRES_USER: auth
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-auth_password}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-authpassword}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -25,7 +27,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/auth-db
       SPRING_DATASOURCE_USERNAME: auth
-      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-auth_password}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-authpassword}
     ports:
       - "8080:8080"
 
